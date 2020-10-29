@@ -22,6 +22,8 @@ async function bootstrap() {
     join(__dirname, '..', 'src', 'views', 'home'),
   ]);
 
+  app.useStaticAssets(join(__dirname, '..', 'public'));
+
   app.setViewEngine('pug');
 
   await app.listen(3000);
