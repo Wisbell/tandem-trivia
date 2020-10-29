@@ -22,6 +22,10 @@ class TriviaGame {
   nextQuestions() {
 
   }
+
+  enableNextQuestionButton(questionIndex) {
+
+  }
 }
 
 // Global class keeps track of game state
