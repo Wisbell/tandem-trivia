@@ -1,7 +1,7 @@
 extends ../common/layout.pug
 
 block content
-  .section
+  .section#startSection
     .columns.is-centered
       .column.is-half
         .content.has-text-centered
@@ -9,25 +9,22 @@ block content
           h4 There are 
             span#triviaRounds.has-text-primary #{trivia.numberOfRounds} 
             | rounds in total!
+          button.button.is-large.is-primary.mt-6(onclick='Game.start()') Begin
 
-  .section
+  .section.is-hidden#triviaSection
     .columns.is-centered
       .column.is-half
-        .content.has-text-centered
-          button.button.is-large.is-primary Begin
-
-  .section
-    .columns.is-centered
-      .column.is-half
-        .content.has-text-centered
-            each q in trivia.questions
-              div
+        .content
+            each q, index in trivia.questions
+              .trivia-question-container(id=(index))
                 h3= q.question
-                //- .control
-                //-   each q
-                //-   label.radio
-                //-     input(type="radio", name="test" id="test" value="asdf" )
-                //-     |  Test
+                .control
+                  each answer in q.generateAnswerArray()
+                      label.radio
+                        input(type="radio", name="test" id="test" value="asdf" )
+                        span.is-size-4  #{answer}
+                      br
+                .button.mt-2.is-success Next
                     
 
 
