@@ -5,6 +5,31 @@ block content
     .columns.is-centered
       .column.is-half
         .content.has-text-centered
-          h1 TODO
+          h1 Good luck!
+          h4 There are 
+            span#triviaRounds.has-text-primary #{trivia.numberOfRounds} 
+            | rounds in total!
+
+  .section
+    .columns.is-centered
+      .column.is-half
+        .content.has-text-centered
+          button.button.is-large.is-primary Begin
+
+  .section
+    .columns.is-centered
+      .column.is-half
+        .content.has-text-centered
+            each q in trivia.questions
+              div
+                h3= q.question
+                //- .control
+                //-   each q
+                //-   label.radio
+                //-     input(type="radio", name="test" id="test" value="asdf" )
+                //-     |  Test
+                    
 
 
+block scripts
+  script(type='text/javascript' src='/js/trivia.js')
