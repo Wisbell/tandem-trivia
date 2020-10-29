@@ -18,4 +18,13 @@ export class AppController {
       home_title_text: 'Welcome to Tandem Trivia!'
     };
   }
+
+  @Get('trivia')
+  @Render('trivia')
+  trivia() {
+    return {
+      title: 'Tandem Trivia',
+      home_title_text: 'Welcome to Tandem Trivia!'
+    };
+  }
 }
