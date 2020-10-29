@@ -6,14 +6,24 @@ import * as data from '../data/Apprentice_TandemFor400_Data.json';
 @Injectable()
 export class TriviaService {
   // Load trivia data on init
-  constructor(
-    private readonly triviaData: TriviaQuestion[]
-  ) {
-    triviaData = TriviaQuestion.generateTriviaQuestionArray(data as TriviaData[]);
+  private readonly triviaData: TriviaQuestion[];
+
+  constructor() {
+    this.triviaData = TriviaQuestion.generateTriviaQuestionArray(data as TriviaData[]);
   }
 
-  // Get question by index in triviaData array
-  getQuestion(index: number): TriviaQuestion {
-    return this.triviaData[index];
+  // Get all questions
+  getAllQuestions(): TriviaQuestion[] {
+    return this.triviaData;
+  }
+
+  // Get question by index in triviaData array property
+  getQuestion(index: string): TriviaQuestion {
+    return this.triviaData[parseInt(index)];
+  }
+
+  // Get question by name in triviaData array property
+  getQuestionByName(questionName: string): TriviaQuestion {
+    throw new NotImplementedException();
   }
 }

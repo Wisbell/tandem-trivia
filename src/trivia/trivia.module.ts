@@ -6,4 +6,4 @@ import { TriviaService } from './trivia.service';
   controllers: [TriviaController],
   providers: [TriviaService]
 })
-export class TriviaModule {}
+export class TriviaModule { }
