@@ -137,10 +137,15 @@ to display your commitment to quality code.
 
 ### TODO - Main Goals
 - [ ] Model Data
-- [ ] Creat User Stories
+- [ ] Create User Stories
+- [ ] Create Views
+- [ ] Complete User Stories
 
 ### TODO - User Stories
-- todo
+- [ ] A user can view one question at a time during a round of trivia
+- [ ] A user can choose one answer at a time
+- [ ] A user can view the correct answer to a question after submitting an answer
+
 
 ### TODO - Readme Goals
 - [ ] Add a installation/starting section when finished
