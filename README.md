@@ -145,6 +145,7 @@ to display your commitment to quality code.
 - [ ] A user can view one question at a time during a round of trivia
 - [ ] A user can choose one answer at a time
 - [ ] A user can view the correct answer to a question after submitting an answer
+- [ ] A user can view
 
 
 ### TODO - Readme Goals
