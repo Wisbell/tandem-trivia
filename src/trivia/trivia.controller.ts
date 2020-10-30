@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Query, Render, Req } from '@nestjs/common';
+import { Controller, Get, Param, Query, Render } from '@nestjs/common';
 import { TriviaGame } from 'src/models/trivia-game';
 import { TriviaService } from './trivia.service';
 
