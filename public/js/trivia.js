@@ -5,7 +5,9 @@
 // const { AppConfig } = require("./config");
 import AppConfig from './config.js';
 
-class TriviaGame {
+console.log('trivia')
+
+export default class TriviaGame {
   // hasStarted = false;
   // currentQuestion;
   // questions;
@@ -14,29 +16,36 @@ class TriviaGame {
   numberOfRounds = 0;
   // Array of array Trivia Questions
   rounds = [];
+  // Allows getting of questions in a randomized order from api
+  shuffleQuestions = true;
 
   constructor() {
     this.init();
   }
 
   init() {
-    this.numberOfRounds = parseInt(document.getElementById('triviaRounds'));
-    // - Generate rounds based on number of rounds set in trivia controller
-    this.generateRound();
+    console.log('init called')
+    this.numberOfRounds = this.parseNumberOfRoundsFromDOM();
+    console.log(this.numberOfRounds);
+    this.generateAllRounds();
   }
 
-  // Generate 
-  async generateRound(random = null) {
-    // Get question list
-    const response = await fetch(`${AppConfig.triviaApiUrl}?random=true`);
-    const data = await response.json();
-    console.log('data', data);
+  parseNumberOfRoundsFromDOM() {
+    return parseInt(document.getElementById('triviaRounds').innerHTML);
+  }
+
+  async generateRound() {
+    let requestUrl =
+      this.shuffleQuestions ? `${AppConfig.triviaApiUrl}?random=true` : AppConfig.triviaApiUrl;
+    const response = await fetch(requestUrl);
+    return await response.json();
   }
 
   async generateAllRounds() {
     for (let i = 0; i < this.numberOfRounds; i++) {
-      this.rounds.push
+      this.rounds.push(await this.generateRound());
     }
+    console.log('rounds', this.rounds);
   }
 
   // Hide start section
@@ -61,4 +70,4 @@ class TriviaGame {
 }
 
 // Global class keeps track of game state
-const Game = new TriviaGame();
+// export const Game = new TriviaGame();
