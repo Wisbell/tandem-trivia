@@ -2,9 +2,8 @@
 //        - get data from api
 // Use api to get all data, do not pre-populate unless necessary
 
-const { AppConfig } = require("./config");
-
-
+// const { AppConfig } = require("./config");
+import AppConfig from './config.js';
 
 class TriviaGame {
   // hasStarted = false;
@@ -15,7 +14,6 @@ class TriviaGame {
   numberOfRounds = 0;
   // Array of array Trivia Questions
   rounds = [];
-  triviaApiUrl = AppConfig.triviaApiUrl;
 
   constructor() {
     this.init();
