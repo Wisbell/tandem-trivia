@@ -68,9 +68,12 @@ export default class TriviaGame {
     // get question
     // get current round
     // get current question
-    const currentQuestion = this.rounds[this.currentRoundIndex][this.currentQuestionIndex]
+    const currentQuestion = this.getCurrentQuestion();
     console.log('currentQuestion', currentQuestion);
+  }
 
+  getCurrentQuestion() {
+    return this.rounds[this.currentRoundIndex][this.currentQuestionIndex];
   }
 
   // Hide current question
