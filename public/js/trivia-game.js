@@ -5,8 +5,6 @@
 // const { AppConfig } = require("./config");
 import AppConfig from './config.js';
 
-console.log('trivia')
-
 export default class TriviaGame {
   // hasStarted = false;
   // currentQuestion;
@@ -24,9 +22,7 @@ export default class TriviaGame {
   }
 
   init() {
-    console.log('init called')
     this.numberOfRounds = this.parseNumberOfRoundsFromDOM();
-    console.log(this.numberOfRounds);
     this.generateAllRounds();
   }
 
@@ -51,7 +47,6 @@ export default class TriviaGame {
   // Hide start section
   // Display question section
   start() {
-    console.log('start clicked!');
     const goodLuckSection = document.getElementById('startSection');
     const triviaSection = document.getElementById('triviaSection');
     goodLuckSection.classList.add('is-hidden');
