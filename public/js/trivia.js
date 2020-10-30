@@ -2,19 +2,22 @@
 //        - get data from api
 // Use api to get all data, do not pre-populate unless necessary
 
+const { AppConfig } = require("./config");
+
 
 
 class TriviaGame {
   // hasStarted = false;
   // currentQuestion;
   // questions;
+
   // Number of rounds for the trivia game, retrieved from DOM id on trivia route
-  numberOfRounds; // number
+  numberOfRounds = 0;
   // Array of array Trivia Questions
-  rounds; // [ TriviaQuestion[], TriviaQuestion[] ]
+  rounds = [];
   port = '3000';
   rootUrl = `http://localhost:${this.port}`;
-  triviaApiUrl = `${this.rootUrl}/trivia/api`;
+  triviaApiUrl = AppConfig.triviaApiUrl;
 
   constructor() {
     this.init();
@@ -32,6 +35,12 @@ class TriviaGame {
     const response = await fetch(`${this.triviaApiUrl}?random=true`);
     const data = await response.json();
     console.log('data', data);
+  }
+
+  async generateAllRounds() {
+    for (let i = 0; i < this.numberOfRounds; i++) {
+      this.rounds.push
+    }
   }
 
   // Hide start section
