@@ -11,6 +11,10 @@ export default class TriviaGame {
   // currentQuestion;
   // questions;
 
+  currentQuestionIndex = 0;
+  currentRoundIndex = 0;
+
+  // TODO: store numeberOfRounds on backend and retrieve from there
   // Number of rounds for the trivia game, retrieved from DOM id on trivia route
   numberOfRounds = 0;
   // Array of array Trivia Questions
@@ -51,11 +55,22 @@ export default class TriviaGame {
 
   // Hide start section
   // Display question section
+  // Generate initial question
   start() {
     const goodLuckSection = document.getElementById('startSection');
     const triviaSection = document.getElementById('triviaSection');
     goodLuckSection.classList.add('is-hidden');
     triviaSection.classList.remove('is-hidden');
+    this.generateQuestion();
+  }
+
+  generateQuestion() {
+    // get question
+    // get current round
+    // get current question
+    const currentQuestion = this.rounds[this.currentRoundIndex][this.currentQuestionIndex]
+    console.log('currentQuestion', currentQuestion);
+
   }
 
   // Hide current question
