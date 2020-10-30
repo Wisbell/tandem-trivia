@@ -54,16 +54,12 @@ export default class TriviaGame {
     this.generateQuestionTemplate();
   }
 
-  // TODO: Rename to generate question template
   generateQuestionTemplate() {
-    // get question
-    // get current round
-    // get current question
     const currentQuestion = this.getCurrentQuestion();
-    console.log('currentQuestion', currentQuestion);
-    currentQuestion.userAnswer = 'test';
-    const test = this.getCurrentQuestion();
-    console.log('test', test);
+    console.log('currentQuestion', currentQuestion); // Remove this
+    // currentQuestion.userAnswer = 'test'; // Remove this
+    // const test = this.getCurrentQuestion(); // Remove this
+    // console.log('test', test); // Remove this
 
     const triviaQuestionContainer = document.getElementById('trivia-question-container');
 
@@ -101,6 +97,17 @@ export default class TriviaGame {
 
     // Add answersContainer element to main trivia question container element
     triviaQuestionContainer.appendChild(answersContainerElement);
+
+    // Create and add submit answer button to main trivia question container element
+    const submitAnswerButton = document.createElement('button');
+    const submitAnswerButtonText = document.createTextNode("Submit")
+    submitAnswerButton.classList.add('button', 'is-primary', 'mt-3');
+    submitAnswerButton.appendChild(submitAnswerButtonText);
+    triviaQuestionContainer.appendChild(submitAnswerButton);
+  }
+
+  answerQuestion(questionId,) {
+
   }
 
   getCurrentQuestion() {
