@@ -15,8 +15,6 @@ class TriviaGame {
   numberOfRounds = 0;
   // Array of array Trivia Questions
   rounds = [];
-  port = '3000';
-  rootUrl = `http://localhost:${this.port}`;
   triviaApiUrl = AppConfig.triviaApiUrl;
 
   constructor() {
@@ -32,7 +30,7 @@ class TriviaGame {
   // Generate 
   async generateRound(random = null) {
     // Get question list
-    const response = await fetch(`${this.triviaApiUrl}?random=true`);
+    const response = await fetch(`${AppConfig.triviaApiUrl}?random=true`);
     const data = await response.json();
     console.log('data', data);
   }
