@@ -4,6 +4,7 @@
 
 // const { AppConfig } = require("./config");
 import AppConfig from './config.js';
+import TriviaQuestionDto from './trivia-question.js';
 
 export default class TriviaGame {
   // hasStarted = false;
@@ -34,7 +35,11 @@ export default class TriviaGame {
     let requestUrl =
       this.shuffleQuestions ? `${AppConfig.triviaApiUrl}?random=true` : AppConfig.triviaApiUrl;
     const response = await fetch(requestUrl);
-    return await response.json();
+    const data = await response.json();
+
+    return data.map(triviaQuestion => {
+      return TriviaQuestionDto.fromTriviaQuestion(triviaQuestion);
+    });
   }
 
   async generateAllRounds() {
