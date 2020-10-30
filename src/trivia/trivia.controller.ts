@@ -1,7 +1,8 @@
-import { Controller, Get, Param, Render } from '@nestjs/common';
+import { Controller, Get, Param, Query, Render, Req } from '@nestjs/common';
 import { TriviaGame } from 'src/models/trivia-game';
 import { TriviaService } from './trivia.service';
 
+// TODO: Move trivia render back to app controller
 @Controller('trivia')
 export class TriviaController {
   constructor(private triviaService: TriviaService) { }
@@ -17,8 +18,12 @@ export class TriviaController {
     };
   }
 
+  // TODO: Make random query only accept true and false strings -> Make custom pipe
   @Get('api')
-  getAllQuestions() {
+  getAllQuestions(@Query('random') random: string) {
+    if (random === 'true')
+      return this.triviaService.getAllQuestions(true);
+
     return this.triviaService.getAllQuestions();
   }
 
