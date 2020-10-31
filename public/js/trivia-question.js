@@ -1,3 +1,5 @@
+import { shuffleArray } from './utlity.js';
+
 export default class TriviaQuestionDto {
   id;               // string
   question;         // string
@@ -18,6 +20,8 @@ export default class TriviaQuestionDto {
   }
 
   static fromTriviaQuestion({ id, question, incorrectAnswers, correctAnswer }) {
-    return new TriviaQuestionDto(id, question, [...incorrectAnswers, correctAnswer], correctAnswer);
+    const allAnswers = [...incorrectAnswers, correctAnswer];
+    shuffleArray(allAnswers);
+    return new TriviaQuestionDto(id, question, allAnswers, correctAnswer);
   }
 }
