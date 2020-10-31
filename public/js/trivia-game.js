@@ -54,7 +54,26 @@ export default class TriviaGame {
     this.generateQuestionTemplate();
   }
 
+  generateCurrentRoundTemplate() {
+    const triviaQuestionContainer = document.getElementById('trivia-question-container');
+    const currentRoundHeader = document.createElement('h2');
+    const headerText = document.createTextNode(`Current Round: ${this.currentRoundIndex + 1}`);
+    currentRoundHeader.appendChild(headerText);
+    triviaQuestionContainer.appendChild(currentRoundHeader);
+  }
+
+  generateCurrentQuestionTemplate() {
+    const triviaQuestionContainer = document.getElementById('trivia-question-container');
+    const currentQuestionHeader = document.createElement('h2');
+    const headerText = document.createTextNode(`Current Question: ${this.currentQuestionIndex + 1}`);
+    currentQuestionHeader.appendChild(headerText);
+    triviaQuestionContainer.appendChild(currentQuestionHeader);
+  }
+
   generateQuestionTemplate() {
+    this.generateCurrentRoundTemplate();
+    this.generateCurrentQuestionTemplate();
+
     const currentQuestion = this.getCurrentQuestion();
     console.log('currentQuestion', currentQuestion); // Remove this
 
@@ -189,8 +208,7 @@ export default class TriviaGame {
 
   displayNextQuestion() {
     this.clearTriviaQuestionContainer();
-    // this.currentQuestionIndex++;
-    this.currentQuestionIndex = this.rounds[0].length - 1;
+    this.currentQuestionIndex++;
     this.generateQuestionTemplate();
   }
 
@@ -221,20 +239,24 @@ export default class TriviaGame {
   }
 
   displayRoundScore() {
-    console.log('displayRoundScore');
     this.clearTriviaQuestionContainer();
     this.generateRoundScoreTemplate();
+
     // Show next round button or go to home page button
     const triviaQuestionContainer = document.getElementById('trivia-question-container');
-    // console.log('done?', this.allRoundsHaveBeenCompleted());
-    const complete = this.allRoundsHaveBeenCompleted();
-    console.log('complete', complete);
-    if (complete) {
+
+    if (this.allRoundsHaveBeenCompleted()) {
       const goToHomePageButtonElement = document.createElement('a');
       goToHomePageButtonElement.classList.add('button', 'is-danger');
       goToHomePageButtonElement.setAttribute('href', "/");
-      goToHomePageButtonElement.appendChild(document.createTextNode('Go To Home Page'));
+      goToHomePageButtonElement.appendChild(document.createTextNode('All done! Go To Home Page.'));
       triviaQuestionContainer.appendChild(goToHomePageButtonElement);
+    } else {
+      const nextRoundButton = document.createElement('button');
+      nextRoundButton.appendChild(document.createTextNode('Next Round'));
+      nextRoundButton.classList.add('button', 'is-link');
+      nextRoundButton.addEventListener('click', this.displayNextRound.bind(this));
+      triviaQuestionContainer.appendChild(nextRoundButton);
     }
   }
 
