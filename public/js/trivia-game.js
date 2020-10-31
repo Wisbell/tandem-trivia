@@ -77,11 +77,14 @@ export default class TriviaGame {
       // Create label element
       const labelElement = document.createElement('label');
       labelElement.classList.add('radio');
+      // NOTE: .bind(this) binds 'this' instance of TriviaGame instead of the label element 'this'
+      labelElement.addEventListener('click', this.enableSubmitAnswerButton.bind(this));
       // Create input element
       const inputElement = document.createElement('input');
       inputElement.classList.add('mr-2');
       inputElement.setAttribute('type', 'radio');
       inputElement.setAttribute('name', 'answer');
+      inputElement.setAttribute('value', answer);
       // Create span element
       const spanElement = document.createElement('span');
       const spanText = document.createTextNode(answer);
@@ -103,26 +106,65 @@ export default class TriviaGame {
     const submitAnswerButtonText = document.createTextNode("Submit")
     submitAnswerButton.classList.add('button', 'is-primary', 'mt-3');
     submitAnswerButton.appendChild(submitAnswerButtonText);
+    // NOTE: .bind(this) binds 'this' instance of TriviaGame instead of the submit answer's button 'this'
+    submitAnswerButton.addEventListener('click', this.answerQuestion.bind(this));
+    // Disable submit button until an answer is chosen
+    submitAnswerButton.disabled = true;
+    submitAnswerButton.setAttribute("id", "submitAnswerButton");
     triviaQuestionContainer.appendChild(submitAnswerButton);
   }
 
-  answerQuestion(questionId,) {
+  enableSubmitAnswerButton() {
+    // Enable button
+    const submitAnswerButton = document.getElementById('submitAnswerButton');
+    submitAnswerButton.disabled = false;
+    // TODO: Remove click event listeners on labels
+    // NOTE: https://stackoverflow.com/questions/11565471/removing-event-listener-which-was-added-with-bind
+    //      This isn't a big deal for now, but adding this here for possible future updates
+    /*
+    const labelElements = document.getElementsByTagName('label');
+    for (let label of labelElements) {
+      // label.removeEventListener('click', this.enableSubmitAnswerButton, true);
+    }
+    */
+  }
 
+  answerQuestion() {
+    console.log('answer question');
+    console.log('this', this);
+    const currentQuestion = this.getCurrentQuestion();
+    const currentAnswer = this.getCurrentAnswer();
+    console.log('current Answer', currentAnswer);
+    currentQuestion.userAnswer = currentAnswer;
+    console.log('currentQuestion', currentQuestion);
   }
 
   getCurrentQuestion() {
     return this.rounds[this.currentRoundIndex][this.currentQuestionIndex];
   }
 
+  getCurrentAnswer() {
+    const inputElements = document.getElementsByName('answer');
+    console.log('inputElements', inputElements);
+    let answer;
+    for (let input of inputElements) {
+      if (input.checked) {
+        answer = input.defaultValue;
+        break;
+      }
+    }
+    return answer;
+  }
+
   // Hide current question
   // Show next question if not at the end of the question list
-  nextQuestions() {
+  // nextQuestions() {
 
-  }
+  // }
 
-  enableNextQuestionButton(questionIndex) {
+  // enableNextQuestionButton(questionIndex) {
 
-  }
+  // }
 }
 
 // Global class keeps track of game state
