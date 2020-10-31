@@ -40,7 +40,6 @@ export default class TriviaGame {
     for (let i = 0; i < this.numberOfRounds; i++) {
       this.rounds.push(await this.generateRound());
     }
-    console.log('rounds', this.rounds);
   }
 
   // Hide start section
@@ -75,8 +74,6 @@ export default class TriviaGame {
     this.generateCurrentQuestionTemplate();
 
     const currentQuestion = this.getCurrentQuestion();
-    console.log('currentQuestion', currentQuestion); // Remove this
-
     const triviaQuestionContainer = document.getElementById('trivia-question-container');
 
     // Add question header
@@ -229,7 +226,7 @@ export default class TriviaGame {
     triviaQuestionContainer.appendChild(roundScoreHeaderElement);
 
     // Create score
-    // roundScore = { correctAnswers, numberOfQuestions }
+    // NOTE: roundScore = { correctAnswers, numberOfQuestions }
     const roundScore = TriviaQuestionDto.getRoundScore(this.rounds[this.currentRoundIndex]);
     const scoreElement = document.createElement('h4');
     scoreElement.appendChild(
