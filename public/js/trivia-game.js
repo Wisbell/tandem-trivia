@@ -157,6 +157,7 @@ export default class TriviaGame {
         answer.classList.add('has-text-success');
     }
 
+    // Show result message
     const resultElement = document.createElement('h4');
     resultElement.classList.add('mt-3');
 
@@ -168,7 +169,30 @@ export default class TriviaGame {
     const triviaQuestionContainer = document.getElementById('trivia-question-container');
     triviaQuestionContainer.appendChild(resultElement);
 
+    // Show next question button or show round score
+    if (this.isRoundOver()) {
+      // TODO: See Score Button
+      console.log('Show the see score button');
+    } else {
+      // Create and add next question button
+      const nextQuestionButton = document.createElement('button');
+      nextQuestionButton.appendChild(document.createTextNode('Next Question'));
+      nextQuestionButton.classList.add('button', 'is-link');
+      nextQuestionButton.addEventListener('click', this.displayNextQuestion.bind(this));
+      triviaQuestionContainer.appendChild(nextQuestionButton);
+    }
+  }
 
+  displayNextQuestion() {
+    console.log('displayNextQuestion');
+    this.clearTriviaQuestionContainer();
+  }
+
+  clearTriviaQuestionContainer() {
+    const triviaQuestionContainer = document.getElementById('trivia-question-container');
+    while (triviaQuestionContainer.firstChild) {
+      triviaQuestionContainer.removeChild(triviaQuestionContainer.lastChild);
+    }
   }
 
   getCurrentQuestion() {
@@ -186,6 +210,15 @@ export default class TriviaGame {
       }
     }
     return answer;
+  }
+
+  isRoundOver() {
+    const currentRoundLength = this.rounds[this.currentRoundIndex].length;
+
+    if (currentRoundLength === this.currentQuestionIndex + 1)
+      return true;
+    else
+      return false;
   }
 
   // Hide current question
