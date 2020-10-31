@@ -136,6 +136,7 @@ If you would like a challenge, consider adding unit tests
 to display your commitment to quality code.
 
 ### TODO - Main Goals
+- Add acceptance criteria as goals
 - [ ] Model Data
 - [ ] Create User Stories
 - [ ] Create Views
