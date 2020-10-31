@@ -172,7 +172,6 @@ export default class TriviaGame {
     // Show next question button or show round score
     if (this.isRoundOver()) {
       // Create and add see score button
-      console.log('Show the see score button');
       const showRoundScoreButton = document.createElement('button');
       showRoundScoreButton.appendChild(document.createTextNode('See Round Score'));
       showRoundScoreButton.classList.add('button', 'is-success');
@@ -195,6 +194,13 @@ export default class TriviaGame {
     this.generateQuestionTemplate();
   }
 
+  displayNextRound() {
+    this.clearTriviaQuestionContainer();
+    this.currentRoundIndex++;
+    this.currentQuestionIndex = 0;
+    this.generateQuestionTemplate();
+  }
+
   generateRoundScoreTemplate() {
     const triviaQuestionContainer = document.getElementById('trivia-question-container');
 
@@ -212,12 +218,24 @@ export default class TriviaGame {
       document.createTextNode(`You got ${roundScore.correctAnswers}/${roundScore.numberOfQuestions}`)
     );
     triviaQuestionContainer.appendChild(scoreElement);
-
   }
 
   displayRoundScore() {
+    console.log('displayRoundScore');
     this.clearTriviaQuestionContainer();
     this.generateRoundScoreTemplate();
+    // Show next round button or go to home page button
+    const triviaQuestionContainer = document.getElementById('trivia-question-container');
+    // console.log('done?', this.allRoundsHaveBeenCompleted());
+    const complete = this.allRoundsHaveBeenCompleted();
+    console.log('complete', complete);
+    if (complete) {
+      const goToHomePageButtonElement = document.createElement('a');
+      goToHomePageButtonElement.classList.add('button', 'is-danger');
+      goToHomePageButtonElement.setAttribute('href', "/");
+      goToHomePageButtonElement.appendChild(document.createTextNode('Go To Home Page'));
+      triviaQuestionContainer.appendChild(goToHomePageButtonElement);
+    }
   }
 
   clearTriviaQuestionContainer() {
@@ -248,6 +266,15 @@ export default class TriviaGame {
     const currentRoundLength = this.rounds[this.currentRoundIndex].length;
 
     if (currentRoundLength === this.currentQuestionIndex + 1)
+      return true;
+    else
+      return false;
+  }
+
+  allRoundsHaveBeenCompleted() {
+    console.log('rounds length', this.rounds.length);
+    console.log('current round', this.currentRoundIndex + 1);
+    if (this.rounds.length === this.currentRoundIndex + 1)
       return true;
     else
       return false;
