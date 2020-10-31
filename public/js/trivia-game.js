@@ -57,9 +57,6 @@ export default class TriviaGame {
   generateQuestionTemplate() {
     const currentQuestion = this.getCurrentQuestion();
     console.log('currentQuestion', currentQuestion); // Remove this
-    // currentQuestion.userAnswer = 'test'; // Remove this
-    // const test = this.getCurrentQuestion(); // Remove this
-    // console.log('test', test); // Remove this
 
     const triviaQuestionContainer = document.getElementById('trivia-question-container');
 
@@ -115,9 +112,9 @@ export default class TriviaGame {
   }
 
   enableSubmitAnswerButton() {
-    // Enable button
     const submitAnswerButton = document.getElementById('submitAnswerButton');
     submitAnswerButton.disabled = false;
+
     // TODO: Remove click event listeners on labels
     // NOTE: https://stackoverflow.com/questions/11565471/removing-event-listener-which-was-added-with-bind
     //      This isn't a big deal for now, but adding this here for possible future updates
@@ -130,13 +127,9 @@ export default class TriviaGame {
   }
 
   answerQuestion() {
-    console.log('answer question');
-    console.log('this', this);
     const currentQuestion = this.getCurrentQuestion();
     const currentAnswer = this.getCurrentAnswer();
-    console.log('current Answer', currentAnswer);
     currentQuestion.userAnswer = currentAnswer;
-    console.log('currentQuestion', currentQuestion);
   }
 
   getCurrentQuestion() {
@@ -145,8 +138,8 @@ export default class TriviaGame {
 
   getCurrentAnswer() {
     const inputElements = document.getElementsByName('answer');
-    console.log('inputElements', inputElements);
     let answer;
+
     for (let input of inputElements) {
       if (input.checked) {
         answer = input.defaultValue;
