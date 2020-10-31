@@ -13,6 +13,10 @@ export default class TriviaQuestionDto {
     this.userAnswer = userAnswer;
   }
 
+  isUserAnswerCorrect() {
+    return this.correctAnswer === this.userAnswer;
+  }
+
   static fromTriviaQuestion({ id, question, incorrectAnswers, correctAnswer }) {
     return new TriviaQuestionDto(id, question, [...incorrectAnswers, correctAnswer], correctAnswer);
   }

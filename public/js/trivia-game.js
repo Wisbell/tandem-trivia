@@ -85,6 +85,7 @@ export default class TriviaGame {
       // Create span element
       const spanElement = document.createElement('span');
       const spanText = document.createTextNode(answer);
+      spanElement.classList.add('answer');
       spanElement.appendChild(spanText);
       // Add input and span elements to label element
       labelElement.appendChild(inputElement);
@@ -127,9 +128,47 @@ export default class TriviaGame {
   }
 
   answerQuestion() {
+    // Set answer
     const currentQuestion = this.getCurrentQuestion();
     const currentAnswer = this.getCurrentAnswer();
     currentQuestion.userAnswer = currentAnswer;
+    this.displayAnswer();
+  }
+
+  displayAnswer() {
+    // Hide submit button
+    const submitAnswerButton = document.getElementById('submitAnswerButton');
+    submitAnswerButton.classList.add('is-hidden');
+
+    // Disable radio inputs
+    const inputElements = document.getElementsByName('answer');
+    for (let input of inputElements) {
+      input.disabled = true;
+    }
+
+    // Show correct/incorrect answers by color
+    const currentQuestion = this.getCurrentQuestion();
+    const answers = document.getElementsByClassName('answer');
+
+    for (let answer of answers) {
+      if (answer.textContent !== currentQuestion.correctAnswer)
+        answer.classList.add('has-text-danger');
+      else
+        answer.classList.add('has-text-success');
+    }
+
+    const resultElement = document.createElement('h4');
+    resultElement.classList.add('mt-3');
+
+    if (currentQuestion.isUserAnswerCorrect())
+      resultElement.appendChild(document.createTextNode('You got it!'));
+    else
+      resultElement.appendChild(document.createTextNode('You\'ll get it next time!'));
+
+    const triviaQuestionContainer = document.getElementById('trivia-question-container');
+    triviaQuestionContainer.appendChild(resultElement);
+
+
   }
 
   getCurrentQuestion() {
