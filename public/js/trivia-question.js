@@ -24,4 +24,19 @@ export default class TriviaQuestionDto {
     shuffleArray(allAnswers);
     return new TriviaQuestionDto(id, question, allAnswers, correctAnswer);
   }
+
+  static getRoundScore(questionArray) {
+    const numberOfQuestions = questionArray.length;
+    let correctAnswers = 0;
+
+    questionArray.forEach(question => {
+      if (question.isUserAnswerCorrect())
+        correctAnswers++;
+    });
+
+    return {
+      correctAnswers,
+      numberOfQuestions
+    }
+  }
 }

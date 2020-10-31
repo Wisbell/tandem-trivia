@@ -171,8 +171,13 @@ export default class TriviaGame {
 
     // Show next question button or show round score
     if (this.isRoundOver()) {
-      // TODO: See Score Button
+      // Create and add see score button
       console.log('Show the see score button');
+      const showRoundScoreButton = document.createElement('button');
+      showRoundScoreButton.appendChild(document.createTextNode('See Round Score'));
+      showRoundScoreButton.classList.add('button', 'is-success');
+      showRoundScoreButton.addEventListener('click', this.displayRoundScore.bind(this));
+      triviaQuestionContainer.appendChild(showRoundScoreButton);
     } else {
       // Create and add next question button
       const nextQuestionButton = document.createElement('button');
@@ -184,8 +189,35 @@ export default class TriviaGame {
   }
 
   displayNextQuestion() {
-    console.log('displayNextQuestion');
     this.clearTriviaQuestionContainer();
+    // this.currentQuestionIndex++;
+    this.currentQuestionIndex = this.rounds[0].length - 1;
+    this.generateQuestionTemplate();
+  }
+
+  generateRoundScoreTemplate() {
+    const triviaQuestionContainer = document.getElementById('trivia-question-container');
+
+    // Create and add header
+    const roundScoreHeaderElement = document.createElement('h4');
+    roundScoreHeaderElement.classList.add('has-text-info');
+    roundScoreHeaderElement.appendChild(document.createTextNode('Nice Work!'));
+    triviaQuestionContainer.appendChild(roundScoreHeaderElement);
+
+    // Create score
+    // roundScore = { correctAnswers, numberOfQuestions }
+    const roundScore = TriviaQuestionDto.getRoundScore(this.rounds[this.currentRoundIndex]);
+    const scoreElement = document.createElement('h4');
+    scoreElement.appendChild(
+      document.createTextNode(`You got ${roundScore.correctAnswers}/${roundScore.numberOfQuestions}`)
+    );
+    triviaQuestionContainer.appendChild(scoreElement);
+
+  }
+
+  displayRoundScore() {
+    this.clearTriviaQuestionContainer();
+    this.generateRoundScoreTemplate();
   }
 
   clearTriviaQuestionContainer() {
