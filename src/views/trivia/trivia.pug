@@ -15,27 +15,6 @@ block content
     .columns.is-centered
       .column.is-half
         .content#trivia-question-container
-          //- each q, index in trivia.questions
-          //-   if index === 0
-          //-     .trivia-question-container(id=(`trivia-question-${index}`))
-          //-       h3= q.question
-          //-       .control
-          //-         each answer in q.generateAnswerArray()
-          //-             label.radio
-          //-               input(type="radio", name="test" id="test" value="asdf" )
-          //-               span.is-size-4  #{answer}
-          //-             br
-          //-       .button.mt-2.is-success(disabled) Next
-          //-   else
-          //-     .trivia-question-container.is-hidden(id=(`trivia-question-${index}`))
-          //-       h3= q.question
-          //-       .control
-          //-         each answer in q.generateAnswerArray()
-          //-             label.radio
-          //-               input(type="radio", name="test" id="test" value="asdf" )
-          //-               span.is-size-4  #{answer}
-          //-             br
-          //-       .button.mt-2.is-success(disabled) Next
 
 block scripts
   script(type='text/javascript' src='/js/main.js')
