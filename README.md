@@ -137,6 +137,10 @@ to display your commitment to quality code.
 
 ### TODO - Main Goals
 - Add acceptance criteria as goals
+- Add to heroku hosting
+- Add unit testing for functions
+- Add UI testing w jest? -> see tset folder in main directory
+- Clean up README, remove old readmes -> testing shield at top of page?
 - [ ] Model Data
 - [ ] Create User Stories
 - [ ] Create Views
