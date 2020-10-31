@@ -301,17 +301,4 @@ export default class TriviaGame {
     else
       return false;
   }
-
-  // Hide current question
-  // Show next question if not at the end of the question list
-  // nextQuestions() {
-
-  // }
-
-  // enableNextQuestionButton(questionIndex) {
-
-  // }
 }
-
-// Global class keeps track of game state
-// export const Game = new TriviaGame();
