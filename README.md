@@ -1,75 +1,165 @@
+<!--
+*** Thanks for checking out this README Template. If you have a suggestion that would
+*** make this better, please fork the repo and create a pull request or simply open
+*** an issue with the tag "enhancement".
+*** Thanks again! Now go create something AMAZING! :D
+-->
+
+
+
+
+
+<!-- PROJECT SHIELDS -->
+<!--
+*** I'm using markdown "reference style" links for readability.
+*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
+*** See the bottom of this document for the declaration of the reference variables
+*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
+*** https://www.markdownguide.org/basic-syntax/#reference-style-links
+-->
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
+
+
+
+<!-- PROJECT LOGO -->
+<br />
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
+  <a href="https://github.com/othneildrew/Best-README-Template">
+    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  </a>
+
+  <h3 align="center">Best-README-Template</h3>
+
+  <p align="center">
+    An awesome README template to jumpstart your projects!
+    <br />
+    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    ·
+    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+  </p>
 </p>
 
-[travis-image]: https://api.travis-ci.org/nestjs/nest.svg?branch=master
-[travis-url]: https://travis-ci.org/nestjs/nest
-[linux-image]: https://img.shields.io/travis/nestjs/nest/master.svg?label=linux
-[linux-url]: https://travis-ci.org/nestjs/nest
-  
-  <p align="center">A progressive <a href="http://nodejs.org" target="blank">Node.js</a> framework for building efficient and scalable server-side applications, heavily inspired by <a href="https://angular.io" target="blank">Angular</a>.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/dm/@nestjs/core.svg" alt="NPM Downloads" /></a>
-<a href="https://travis-ci.org/nestjs/nest"><img src="https://api.travis-ci.org/nestjs/nest.svg?branch=master" alt="Travis" /></a>
-<a href="https://travis-ci.org/nestjs/nest"><img src="https://img.shields.io/travis/nestjs/nest/master.svg?label=linux" alt="Linux" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#5" alt="Coverage" /></a>
-<a href="https://gitter.im/nestjs/nestjs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge"><img src="https://badges.gitter.im/nestjs/nestjs.svg" alt="Gitter" /></a>
-<a href="https://opencollective.com/nest#backer"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec"><img src="https://img.shields.io/badge/Donate-PayPal-dc3d53.svg"/></a>
-  <a href="https://twitter.com/nestframework"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+<!-- TABLE OF CONTENTS -->
+## Table of Contents
 
-## Installation
+* [About the Project](#about-the-project)
+  * [Built With](#built-with)
+* [Getting Started](#getting-started)
+  * [Prerequisites](#prerequisites)
+  * [Installation](#installation)
+* [Usage](#usage)
+* [Roadmap](#roadmap)
+* [Contributing](#contributing)
+* [License](#license)
+* [Contact](#contact)
+* [Acknowledgements](#acknowledgements)
 
-```bash
-$ npm install
-```
+# Tandem Apprentice Challenge Info Below
 
-## Running the app
+<i>See pdf in data folder for full information.</i>
 
-```bash
-# development
-$ npm run start
+## How To Submit
 
-# watch mode
-$ npm run start:dev
+The application window for our 2021 apprenticeship will close <b>Sunday,
+November 1 11:59PM CST</b>. 
 
-# production mode
-$ npm run start:prod
-```
+Please submit your challenge by <b>11:59PM CST on
+Sunday, November 1</b>. 
 
-## Test
+Please include a link to your submission in your application (we do have a
+question for this). 
 
-```bash
-# unit tests
-$ npm run test
+You are welcome to put your code challenge submission in
+Github, Bitbucket, or a public source control service of your choosing. 
 
-# e2e tests
-$ npm run test:e2e
+Please exclude any binaries or dependencies that can be built or resolved via a
+package manager (remember to .gitignore those node_modules!). 
 
-# test coverage
-$ npm run test:cov
-```
+Itʼs best to use as few external dependencies as possible to keep the setup simple.
 
-## Support
+<b>Your submission must include instructions for how to run your code.</b>
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+<b>You must also list any system dependencies (e.g. Ruby 2.3, Erlang runtime, JDK8, etc).</b>
 
-## Stay in touch
+Your README is a great place to put this information.
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+## Goal
 
-## License
+Your goal is to create an application that displays trivia questions with multiple-choice answers to select from.
 
-  Nest is [MIT licensed](LICENSE).
+Use creative license in terms of how you want us to see this game. 
+
+At minimum, the player can view the question(s), the answer choices, the correct answer upon submission, and their score. 
+
+It could be a user interface (UI), command-line-tool, etc. Feel free to use whatever framework or language you are comfortable with.
+
+We would also like to see a README which includes any information about how to run the code, any known issues or complexity we should look out for, and any additional features you would like to have added to make your trivia app even more awesome.
+
+## Assumptions
+- A round of trivia has 10 Questions
+- All questions are multiple-choice questions
+- Your score does not need to update in real time
+- Results can update on form submit, button click, or any interaction you choose
+- We will provide you with the trivia data such as the questions, correct and incorrect answers via a
+JSON file.
+
+## Acceptance Criteria
+- A user can view questions.
+- Questions with their multiple choice options must be displayed one at a time.
+- Questions should not repeat in a round.
+- A user can select only 1 answer out of the 4 possible answers.
+- The correct answer must be revealed after a user has submitted their answer
+- A user can see the score they received at the end of the round
+
+## Additional Considerations
+Tandem's first core value is "Ship Quality Work." 
+
+We love unit tests and automated test coverage in our projects.
+
+Well-tested code provides documentation for other developers and prevents
+future regressions (bugs introduced after a change) among other
+things. 
+
+If you would like a challenge, consider adding unit tests
+to display your commitment to quality code.
+
+### TODO - Main Goals
+- Add acceptance criteria as goals
+- Add to heroku hosting
+- Add unit testing for functions
+- Add UI testing w jest? -> see tset folder in main directory
+- Clean up README, remove old readmes -> testing shield at top of page?
+- [ ] Model Data
+- [ ] Create User Stories
+- [ ] Create Views
+- [ ] Complete User Stories
+
+### TODO - User Stories
+- [ ] A user can view one question at a time during a round of trivia
+- [ ] A user can choose one answer at a time
+- [ ] A user can view the correct answer to a question after submitting an answer
+- [ ] A user can view
+
+
+### TODO - Readme Goals
+- [ ] Add a installation/starting section when finished
+- [ ] Add testing shield to see if tests pass at top of readme
+- [ ] Add Heroku hosting and link to the herkoku server
+
+### TODO - Stretch goals
+- [ ] Figure out how to do testing for SSR NestJS projects
+  - Research front end testing
+  - Unit test simple functions
+- [ ] Add Multiple users
