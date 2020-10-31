@@ -1,0 +1,20 @@
+extends ../common/layout.pug
+
+block content
+  .section#startSection
+    .columns.is-centered
+      .column.is-half
+        .content.has-text-centered
+          h1 Good luck!
+          h4 There are 
+            span#triviaRounds.has-text-primary #{trivia.numberOfRounds} 
+            | rounds in total!
+          button.button.is-large.is-primary.mt-6(onclick='Game.start()') Begin
+
+  .section.is-hidden#triviaSection
+    .columns.is-centered
+      .column.is-half
+        .content#trivia-question-container
+
+block scripts
+  script(type='text/javascript' src='/js/main.js')
