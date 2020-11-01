@@ -78,11 +78,8 @@ export default class TriviaGame {
   }
 
   generateCurrentQuestionTemplate() {
-    const triviaQuestionContainer = document.getElementById('trivia-question-container');
-    const currentQuestionHeader = document.createElement('h2');
-    const headerText = document.createTextNode(`Current Question: ${this.currentQuestionIndex + 1}`);
-    currentQuestionHeader.appendChild(headerText);
-    triviaQuestionContainer.appendChild(currentQuestionHeader);
+    const currentQuestionHeader = this.generateElement('h2', `Current Question: ${this.currentQuestionIndex + 1}`);
+    this.appendTriviaQuestionContainerEl(currentQuestionHeader);
   }
 
   generateQuestionTemplate() {
