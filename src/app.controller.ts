@@ -20,7 +20,7 @@ export class AppController {
   trivia() {
     return {
       trivia: new TriviaGame(
-        10,
+        this.triviaService.getNumberOfTriviaRounds(),
         this.triviaService.getAllQuestions()
       )
     };
