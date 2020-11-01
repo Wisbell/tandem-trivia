@@ -17,12 +17,8 @@ export default class TriviaGame {
   }
 
   init() {
-    this.numberOfRounds = this.parseNumberOfRoundsFromDOM();
+    this.numberOfRounds = this.getNumberOfRounds();
     this.generateAllRounds();
-  }
-
-  parseNumberOfRoundsFromDOM() {
-    return parseInt(document.getElementById('triviaRounds').innerHTML);
   }
 
   async generateRound() {
@@ -297,5 +293,12 @@ export default class TriviaGame {
       return true;
     else
       return false;
+  }
+
+  async getNumberOfRounds() {
+    let requestUrl = `${AppConfig.triviaApiUrl}/rounds`;
+    const response = await fetch(requestUrl);
+    const data = await response.json();
+    return data;
   }
 }
