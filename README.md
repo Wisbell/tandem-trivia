@@ -1,74 +1,55 @@
-<!--
-*** Thanks for checking out this README Template. If you have a suggestion that would
-*** make this better, please fork the repo and create a pull request or simply open
-*** an issue with the tag "enhancement".
-*** Thanks again! Now go create something AMAZING! :D
--->
+# Tandem Apprentice Challenge
 
+<i>See pdf in data folder for full information regarding the challenge.</i>
 
-
-
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
-
-
-<!-- PROJECT LOGO -->
-<br />
-<p align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
-
-  <h3 align="center">Best-README-Template</h3>
-
-  <p align="center">
-    An awesome README template to jumpstart your projects!
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
-  </p>
-</p>
-
-
+## SHOW IN ThiS ORDER
+- Description
+- Table of Contents
+- Getting Started
+  - Prerequisites
+  - Installation
+- Running the app
+- Running the tests
+- Built With?
 
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
 
-* [About the Project](#about-the-project)
-  * [Built With](#built-with)
-* [Getting Started](#getting-started)
-  * [Prerequisites](#prerequisites)
-  * [Installation](#installation)
-* [Usage](#usage)
-* [Roadmap](#roadmap)
-* [Contributing](#contributing)
-* [License](#license)
-* [Contact](#contact)
-* [Acknowledgements](#acknowledgements)
+* [Goal](#goal)
+* [Development Setup](#development-setup)
 
-# Tandem Apprentice Challenge Info Below
 
-<i>See pdf in data folder for full information.</i>
+## Goal
+
+**Your goal is to create an application that displays trivia questions with multiple-choice answers to select from.**
+
+Use creative license in terms of how you want us to see this game. 
+
+**At minimum, the player can view the question(s), the answer choices, the correct answer upon submission, and their score.** 
+
+It could be a user interface (UI), command-line-tool, etc. Feel free to use whatever framework or language you are comfortable with.
+
+We would also like to see a README which includes any information about how to run the code, any known issues or complexity we should look out for, and any additional features you would like to have added to make your trivia app even more awesome.
+
+### Development Setup
+```sh
+# Note: Requires NodeJS version 14 or greater
+npm install
+# Run locally in development mode
+npm run start:dev
+```
+
+## Running the app
+```sh
+# development
+$ npm run start
+
+# watch mode
+$ npm run start:dev
+
+# production mode
+$ npm run start:prod
+```
 
 ## How To Submit
 
@@ -94,18 +75,6 @@ Itʼs best to use as few external dependencies as possible to keep the setup sim
 <b>You must also list any system dependencies (e.g. Ruby 2.3, Erlang runtime, JDK8, etc).</b>
 
 Your README is a great place to put this information.
-
-## Goal
-
-Your goal is to create an application that displays trivia questions with multiple-choice answers to select from.
-
-Use creative license in terms of how you want us to see this game. 
-
-At minimum, the player can view the question(s), the answer choices, the correct answer upon submission, and their score. 
-
-It could be a user interface (UI), command-line-tool, etc. Feel free to use whatever framework or language you are comfortable with.
-
-We would also like to see a README which includes any information about how to run the code, any known issues or complexity we should look out for, and any additional features you would like to have added to make your trivia app even more awesome.
 
 ## Assumptions
 - A round of trivia has 10 Questions
@@ -141,6 +110,10 @@ to display your commitment to quality code.
 - Add unit testing for functions
 - Add UI testing w jest? -> see tset folder in main directory
 - Clean up README, remove old readmes -> testing shield at top of page?
+- Player can view all questions
+- Player can view the answer choices
+- Player can view the correct answer on submit
+- Player can view their score
 - [ ] Model Data
 - [ ] Create User Stories
 - [ ] Create Views
