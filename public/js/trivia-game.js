@@ -143,7 +143,7 @@ export default class TriviaGame {
   answerQuestion() {
     // Set answer
     const currentQuestion = this.getCurrentQuestion();
-    const currentAnswer = this.getCurrentAnswer();
+    const currentAnswer = this.getUserAnswer();
     currentQuestion.userAnswer = currentAnswer;
     this.displayAnswer();
   }
@@ -266,7 +266,7 @@ export default class TriviaGame {
     return this.rounds[this.currentRoundIndex][this.currentQuestionIndex];
   }
 
-  getCurrentAnswer() {
+  getUserAnswer() {
     const inputElements = document.getElementsByName('answer');
     let answer;
 
