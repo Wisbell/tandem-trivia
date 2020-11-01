@@ -289,8 +289,6 @@ export default class TriviaGame {
   }
 
   allRoundsHaveBeenCompleted() {
-    console.log('rounds length', this.rounds.length);
-    console.log('current round', this.currentRoundIndex + 1);
     if (this.rounds.length === this.currentRoundIndex + 1)
       return true;
     else
