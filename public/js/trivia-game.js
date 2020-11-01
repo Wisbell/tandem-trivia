@@ -97,7 +97,6 @@ export default class TriviaGame {
     this.generateCurrentQuestionTemplate();
 
     const currentQuestion = this.getCurrentQuestion();
-    const triviaQuestionContainer = document.getElementById('trivia-question-container');
 
     // Add question header
     const questionElement = this.generateElement('h3', currentQuestion.question);
@@ -130,7 +129,6 @@ export default class TriviaGame {
     });
 
     // Add answersContainer element to main trivia question container element
-    // triviaQuestionContainer.appendChild(answersContainerElement);
     this.appendTriviaQuestionContainerEl(answersContainerElement);
 
     const submitAnswerButton = this.generateElement('button', 'Submit', ['button', 'is-primary', 'mt-3']);
@@ -139,7 +137,6 @@ export default class TriviaGame {
     // Disable submit button until an answer is chosen
     submitAnswerButton.disabled = true;
     submitAnswerButton.setAttribute("id", "submitAnswerButton");
-    // triviaQuestionContainer.appendChild(submitAnswerButton);
     this.appendTriviaQuestionContainerEl(submitAnswerButton);
   }
 
