@@ -1,4 +1,4 @@
-import { shuffleArray } from './utlity.js';
+import { shuffleArray } from './utility.js';
 
 export default class TriviaQuestionDto {
   id;               // string
