@@ -186,8 +186,7 @@ export default class TriviaGame {
     }
 
     // Show result message
-    const resultElement = document.createElement('h4');
-    resultElement.classList.add('mt-3');
+    const resultElement = this.generateElement('h4', '', ['mt-3']);
 
     if (currentQuestion.isUserAnswerCorrect())
       resultElement.appendChild(document.createTextNode('You got it!'));
@@ -243,20 +242,18 @@ export default class TriviaGame {
     this.generateRoundScoreTemplate();
 
     // Show next round button or go to home page button
-    const triviaQuestionContainer = document.getElementById('trivia-question-container');
-
     if (this.allRoundsHaveBeenCompleted()) {
-      const goToHomePageButtonElement = document.createElement('a');
-      goToHomePageButtonElement.classList.add('button', 'is-danger');
-      goToHomePageButtonElement.setAttribute('href', "/");
-      goToHomePageButtonElement.appendChild(document.createTextNode('All done! Go To Home Page.'));
-      triviaQuestionContainer.appendChild(goToHomePageButtonElement);
+      const goToHomePageButtonElement = this.generateElement(
+        'a',
+        'All done! Go To Home Page.',
+        ['button', 'is-danger'],
+        [{ name: 'href', value: '/' }]
+      );
+      this.appendTriviaQuestionContainerEl(goToHomePageButtonElement);
     } else {
-      const nextRoundButton = document.createElement('button');
-      nextRoundButton.appendChild(document.createTextNode('Next Round'));
-      nextRoundButton.classList.add('button', 'is-link');
+      const nextRoundButton = this.generateElement('button', 'Next Round', ['button', 'is-link']);
       nextRoundButton.addEventListener('click', this.displayNextRound.bind(this));
-      triviaQuestionContainer.appendChild(nextRoundButton);
+      this.appendTriviaQuestionContainerEl(nextRoundButton);
     }
   }
 
