@@ -1,5 +1,5 @@
-export class AppConfig {
-  static rootUrl = `https://tandem-trivia-westley.herokuapp.com/`;
+export class HerokuAppConfig {
+  static rootUrl = `https://tandem-trivia-westley.herokuapp.com`;
   static triviaApiUrl = `${this.rootUrl}/api/trivia`;
 }
 

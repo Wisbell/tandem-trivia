@@ -1,5 +1,4 @@
-// TODO: Make it easier to choose between regular config and testing config
-import { AppConfig, TestAppConfig } from './config.js';
+import { TestAppConfig, HerokuAppConfig } from './config.js';
 import TriviaQuestionDto from './trivia-question-dto.js';
 import { getJsonResponseFromEndPoint, generateElement } from './utility.js';
 
@@ -9,8 +8,15 @@ export default class TriviaGame {
   numberOfRounds = 0;
   rounds = []; // Array of array Trivia Questions
   shuffleQuestions = true; // Allows getting of questions in a randomized order from api
+  config; // Set on initialization - defaults to TestAppConfig
 
-  constructor() {
+  constructor(configType = '') {
+    if (configType === 'heroku')
+      this.config = HerokuAppConfig;
+    else
+      this.config = TestAppConfig;
+
+
     this.init();
   }
 
@@ -20,12 +26,12 @@ export default class TriviaGame {
   }
 
   async getNumberOfRounds() {
-    return await getJsonResponseFromEndPoint(`${AppConfig.triviaApiUrl}/rounds`);
+    return await getJsonResponseFromEndPoint(`${this.config.triviaApiUrl}/rounds`);
   }
 
   async generateRound() {
     let requestUrl =
-      this.shuffleQuestions ? `${AppConfig.triviaApiUrl}?random=true` : AppConfig.triviaApiUrl;
+      this.shuffleQuestions ? `${this.config.triviaApiUrl}?random=true` : this.config.triviaApiUrl;
 
     const data = await getJsonResponseFromEndPoint(requestUrl);
 
