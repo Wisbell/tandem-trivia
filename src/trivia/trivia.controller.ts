@@ -1,5 +1,5 @@
 import { Controller, Get, Param, Query } from '@nestjs/common';
-import { TriviaQuestion } from 'src/models/trivia-question';
+import { TriviaQuestion } from '../models/trivia-question';
 import { TriviaService } from './trivia.service';
 
 @Controller('api/trivia')
