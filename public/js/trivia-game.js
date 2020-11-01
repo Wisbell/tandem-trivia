@@ -4,12 +4,9 @@ import TriviaQuestionDto from './trivia-question.js';
 export default class TriviaGame {
   currentQuestionIndex = 0;
   currentRoundIndex = 0;
-  // Number of rounds for the trivia game, retrieved from DOM id on trivia route
   numberOfRounds = 0;
-  // Array of array Trivia Questions
-  rounds = [];
-  // Allows getting of questions in a randomized order from api
-  shuffleQuestions = true;
+  rounds = []; // Array of array Trivia Questions
+  shuffleQuestions = true; // Allows getting of questions in a randomized order from api
 
   constructor() {
     this.init();
