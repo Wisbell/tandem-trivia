@@ -1,6 +1,6 @@
 import AppConfig from './config.js';
 import TriviaQuestionDto from './trivia-question-dto.js';
-import { getJsonResponseFromEndPoint } from './utility.js';
+import { getJsonResponseFromEndPoint, generateElement } from './utility.js';
 
 export default class TriviaGame {
   currentQuestionIndex = 0;
@@ -59,36 +59,13 @@ export default class TriviaGame {
     this.getTriviaQuestionContainerEl().appendChild(elementToAppend);
   }
 
-  // Creates and returns new element
-  generateElement(tagName, textNode = '', classList = [], setAttributeList = []) {
-    const newElement = document.createElement(tagName);
-
-    if (textNode) {
-      newElement.appendChild(
-        document.createTextNode(textNode)
-      );
-    }
-
-    if (classList.length > 0) {
-      newElement.classList.add(...classList);
-    }
-
-    if (setAttributeList.length > 0) {
-      setAttributeList.forEach(({ name, value }) => {
-        newElement.setAttribute(name, value);
-      });
-    }
-
-    return newElement;
-  }
-
   generateCurrentRoundTemplate() {
-    const currentRoundHeader = this.generateElement('h2', `Current Round: ${this.currentRoundIndex + 1}`);
+    const currentRoundHeader = generateElement('h2', `Current Round: ${this.currentRoundIndex + 1}`);
     this.appendTriviaQuestionContainerEl(currentRoundHeader);
   }
 
   generateCurrentQuestionTemplate() {
-    const currentQuestionHeader = this.generateElement('h2', `Current Question: ${this.currentQuestionIndex + 1}`);
+    const currentQuestionHeader = generateElement('h2', `Current Question: ${this.currentQuestionIndex + 1}`);
     this.appendTriviaQuestionContainerEl(currentQuestionHeader);
   }
 
@@ -99,26 +76,26 @@ export default class TriviaGame {
     const currentQuestion = this.getCurrentQuestion();
 
     // Add question header
-    const questionElement = this.generateElement('h3', currentQuestion.question);
+    const questionElement = generateElement('h3', currentQuestion.question);
     this.appendTriviaQuestionContainerEl(questionElement);
 
     // Add all answers
-    const answersContainerElement = this.generateElement('div', '', ['control']);
+    const answersContainerElement = generateElement('div', '', ['control']);
 
     currentQuestion.allAnswers.forEach(answer => {
       // Create label element
-      const labelElement = this.generateElement('label', '', ['radio']);
+      const labelElement = generateElement('label', '', ['radio']);
       // NOTE: .bind(this) binds 'this' instance of TriviaGame instead of the label element 'this'
       labelElement.addEventListener('click', this.enableSubmitAnswerButton.bind(this));
       // Create input element
-      const inputElement = this.generateElement(
+      const inputElement = generateElement(
         'input',
         '',
         ['mr-2'],
         [{ name: 'type', value: 'radio' }, { name: 'name', value: 'answer' }, { name: 'value', value: answer }]
       );
       // Create span element
-      const spanElement = this.generateElement('span', answer, ['answer']);
+      const spanElement = generateElement('span', answer, ['answer']);
       // Add input and span elements to label element
       labelElement.appendChild(inputElement);
       labelElement.appendChild(spanElement);
@@ -131,7 +108,7 @@ export default class TriviaGame {
     // Add answersContainer element to main trivia question container element
     this.appendTriviaQuestionContainerEl(answersContainerElement);
 
-    const submitAnswerButton = this.generateElement('button', 'Submit', ['button', 'is-primary', 'mt-3']);
+    const submitAnswerButton = generateElement('button', 'Submit', ['button', 'is-primary', 'mt-3']);
     // NOTE: .bind(this) binds 'this' instance of TriviaGame instead of the submit answer's button 'this'
     submitAnswerButton.addEventListener('click', this.answerQuestion.bind(this));
     // Disable submit button until an answer is chosen
@@ -186,7 +163,7 @@ export default class TriviaGame {
     }
 
     // Show result message
-    const resultElement = this.generateElement('h4', '', ['mt-3']);
+    const resultElement = generateElement('h4', '', ['mt-3']);
 
     if (currentQuestion.isUserAnswerCorrect())
       resultElement.appendChild(document.createTextNode('You got it!'));
@@ -198,13 +175,13 @@ export default class TriviaGame {
     // Show next question button or show round score
     if (this.isRoundOver()) {
       // Create and add see score button
-      const showRoundScoreButton = this.generateElement('button', 'See Round Score', ['button', 'is-success']);
+      const showRoundScoreButton = generateElement('button', 'See Round Score', ['button', 'is-success']);
       showRoundScoreButton.addEventListener('click', this.displayRoundScore.bind(this));
 
       this.appendTriviaQuestionContainerEl(showRoundScoreButton);
     } else {
       // Create and add next question button
-      const nextQuestionButton = this.generateElement('button', 'Next Question', ['button', 'is-link']);
+      const nextQuestionButton = generateElement('button', 'Next Question', ['button', 'is-link']);
       nextQuestionButton.addEventListener('click', this.displayNextQuestion.bind(this));
 
       this.appendTriviaQuestionContainerEl(nextQuestionButton);
@@ -226,13 +203,13 @@ export default class TriviaGame {
 
   generateRoundScoreTemplate() {
     // Create and add header
-    const roundScoreHeaderElement = this.generateElement('h4', 'Nice Work!', ['has-text-info']);
+    const roundScoreHeaderElement = generateElement('h4', 'Nice Work!', ['has-text-info']);
     this.appendTriviaQuestionContainerEl(roundScoreHeaderElement);
 
     // Create score
     // NOTE: roundScore = { correctAnswers, numberOfQuestions }
     const roundScore = TriviaQuestionDto.getRoundScore(this.rounds[this.currentRoundIndex]);
-    const scoreElement = this.generateElement('h4', `You got ${roundScore.correctAnswers}/${roundScore.numberOfQuestions}`);
+    const scoreElement = generateElement('h4', `You got ${roundScore.correctAnswers}/${roundScore.numberOfQuestions}`);
     this.appendTriviaQuestionContainerEl(scoreElement);
 
   }
@@ -243,7 +220,7 @@ export default class TriviaGame {
 
     // Show next round button or go to home page button
     if (this.allRoundsHaveBeenCompleted()) {
-      const goToHomePageButtonElement = this.generateElement(
+      const goToHomePageButtonElement = generateElement(
         'a',
         'All done! Go To Home Page.',
         ['button', 'is-danger'],
@@ -251,7 +228,7 @@ export default class TriviaGame {
       );
       this.appendTriviaQuestionContainerEl(goToHomePageButtonElement);
     } else {
-      const nextRoundButton = this.generateElement('button', 'Next Round', ['button', 'is-link']);
+      const nextRoundButton = generateElement('button', 'Next Round', ['button', 'is-link']);
       nextRoundButton.addEventListener('click', this.displayNextRound.bind(this));
       this.appendTriviaQuestionContainerEl(nextRoundButton);
     }

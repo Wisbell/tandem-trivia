@@ -11,3 +11,25 @@ export async function getJsonResponseFromEndPoint(endpoint) {
   const data = await response.json();
   return data;
 }
+
+export function generateElement(tagName, textNode = '', classList = [], setAttributeList = []) {
+  const newElement = document.createElement(tagName);
+
+  if (textNode) {
+    newElement.appendChild(
+      document.createTextNode(textNode)
+    );
+  }
+
+  if (classList.length > 0) {
+    newElement.classList.add(...classList);
+  }
+
+  if (setAttributeList.length > 0) {
+    setAttributeList.forEach(({ name, value }) => {
+      newElement.setAttribute(name, value);
+    });
+  }
+
+  return newElement;
+}
