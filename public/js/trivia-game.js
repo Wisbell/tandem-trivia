@@ -60,7 +60,7 @@ export default class TriviaGame {
   }
 
   // Creates and returns new element
-  generateElement(tagName, textNode = '', classList = []) {
+  generateElement(tagName, textNode = '', classList = [], setAttributeList = []) {
     const newElement = document.createElement(tagName);
 
     if (textNode) {
@@ -71,6 +71,12 @@ export default class TriviaGame {
 
     if (classList.length > 0) {
       newElement.classList.add(...classList);
+    }
+
+    if (setAttributeList.length > 0) {
+      setAttributeList.forEach(({ name, value }) => {
+        newElement.setAttribute(name, value);
+      });
     }
 
     return newElement;
@@ -107,16 +113,14 @@ export default class TriviaGame {
       // NOTE: .bind(this) binds 'this' instance of TriviaGame instead of the label element 'this'
       labelElement.addEventListener('click', this.enableSubmitAnswerButton.bind(this));
       // Create input element
-      const inputElement = document.createElement('input');
-      inputElement.classList.add('mr-2');
-      inputElement.setAttribute('type', 'radio');
-      inputElement.setAttribute('name', 'answer');
-      inputElement.setAttribute('value', answer);
+      const inputElement = this.generateElement(
+        'input',
+        '',
+        ['mr-2'],
+        [{ name: 'type', value: 'radio' }, { name: 'name', value: 'answer' }, { name: 'value', value: answer }]
+      );
       // Create span element
-      const spanElement = document.createElement('span');
-      const spanText = document.createTextNode(answer);
-      spanElement.classList.add('answer');
-      spanElement.appendChild(spanText);
+      const spanElement = this.generateElement('span', answer, ['answer']);
       // Add input and span elements to label element
       labelElement.appendChild(inputElement);
       labelElement.appendChild(spanElement);
