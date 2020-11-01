@@ -205,10 +205,9 @@ export default class TriviaGame {
       this.appendTriviaQuestionContainerEl(showRoundScoreButton);
     } else {
       // Create and add next question button
-      const nextQuestionButton = document.createElement('button');
-      nextQuestionButton.appendChild(document.createTextNode('Next Question'));
-      nextQuestionButton.classList.add('button', 'is-link');
+      const nextQuestionButton = this.generateElement('button', 'Next Question', ['button', 'is-link']);
       nextQuestionButton.addEventListener('click', this.displayNextQuestion.bind(this));
+
       this.appendTriviaQuestionContainerEl(nextQuestionButton);
     }
   }
