@@ -262,7 +262,6 @@ export default class TriviaGame {
   }
 
   getCurrentQuestion() {
-    console.log('this', this);
     return this.rounds[this.currentRoundIndex][this.currentQuestionIndex];
   }
 
