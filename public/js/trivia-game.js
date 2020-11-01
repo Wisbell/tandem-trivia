@@ -70,7 +70,7 @@ export default class TriviaGame {
     }
 
     if (classList.length > 0) {
-      newElement.classList.add(classList);
+      newElement.classList.add(...classList);
     }
 
     return newElement;
@@ -129,11 +129,7 @@ export default class TriviaGame {
     // Add answersContainer element to main trivia question container element
     triviaQuestionContainer.appendChild(answersContainerElement);
 
-    // Create and add submit answer button to main trivia question container element
-    const submitAnswerButton = document.createElement('button');
-    const submitAnswerButtonText = document.createTextNode("Submit")
-    submitAnswerButton.classList.add('button', 'is-primary', 'mt-3');
-    submitAnswerButton.appendChild(submitAnswerButtonText);
+    const submitAnswerButton = this.generateElement('button', 'Submit', ['button', 'is-primary', 'mt-3']);
     // NOTE: .bind(this) binds 'this' instance of TriviaGame instead of the submit answer's button 'this'
     submitAnswerButton.addEventListener('click', this.answerQuestion.bind(this));
     // Disable submit button until an answer is chosen
