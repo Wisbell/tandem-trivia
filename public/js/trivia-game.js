@@ -73,9 +73,7 @@ export default class TriviaGame {
   }
 
   generateCurrentRoundTemplate() {
-    const currentRoundHeader = document.createElement('h2');
-    const headerText = document.createTextNode(`Current Round: ${this.currentRoundIndex + 1}`);
-    currentRoundHeader.appendChild(headerText);
+    const currentRoundHeader = this.generateElement('h2', `Current Round: ${this.currentRoundIndex + 1}`);
     this.appendTriviaQuestionContainerEl(currentRoundHeader);
   }
 
