@@ -39,16 +39,6 @@ export default class TriviaGame {
     }
   }
 
-  // Creates and returns new element
-  generateElement(tagName, textNode) {
-    const newElement = document.createElement(tagName);
-
-    if (textNode) {
-      newElement.appendChild(
-        document.createTextNode(textNode)
-      );
-    }
-  }
 
   // Hide start section
   // Display question section
@@ -61,8 +51,26 @@ export default class TriviaGame {
     this.generateQuestionTemplate();
   }
 
+  getTriviaQuestionContainerEl() {
+    return document.getElementById('trivia-question-container');
+  }
+
+  // Creates and returns new element
+  generateElement(tagName, textNode = '') {
+    const newElement = document.createElement(tagName);
+
+    if (textNode) {
+      newElement.appendChild(
+        document.createTextNode(textNode)
+      );
+    }
+
+    return newElement;
+  }
+
   generateCurrentRoundTemplate() {
-    const triviaQuestionContainer = document.getElementById('trivia-question-container');
+    // const triviaQuestionContainer = document.getElementById('trivia-question-container');
+    const triviaQuestionContainer = this.getTriviaQuestionContainerEl();
     const currentRoundHeader = document.createElement('h2');
     const headerText = document.createTextNode(`Current Round: ${this.currentRoundIndex + 1}`);
     currentRoundHeader.appendChild(headerText);
