@@ -194,24 +194,22 @@ export default class TriviaGame {
     else
       resultElement.appendChild(document.createTextNode('You\'ll get it next time!'));
 
-    const triviaQuestionContainer = document.getElementById('trivia-question-container');
-    triviaQuestionContainer.appendChild(resultElement);
+    this.appendTriviaQuestionContainerEl(resultElement);
 
     // Show next question button or show round score
     if (this.isRoundOver()) {
       // Create and add see score button
-      const showRoundScoreButton = document.createElement('button');
-      showRoundScoreButton.appendChild(document.createTextNode('See Round Score'));
-      showRoundScoreButton.classList.add('button', 'is-success');
+      const showRoundScoreButton = this.generateElement('button', 'See Round Score', ['button', 'is-success']);
       showRoundScoreButton.addEventListener('click', this.displayRoundScore.bind(this));
-      triviaQuestionContainer.appendChild(showRoundScoreButton);
+
+      this.appendTriviaQuestionContainerEl(showRoundScoreButton);
     } else {
       // Create and add next question button
       const nextQuestionButton = document.createElement('button');
       nextQuestionButton.appendChild(document.createTextNode('Next Question'));
       nextQuestionButton.classList.add('button', 'is-link');
       nextQuestionButton.addEventListener('click', this.displayNextQuestion.bind(this));
-      triviaQuestionContainer.appendChild(nextQuestionButton);
+      this.appendTriviaQuestionContainerEl(nextQuestionButton);
     }
   }
 
