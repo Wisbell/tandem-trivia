@@ -4,5 +4,5 @@ let Game; // TriviaGame instance
 // Async/Await is used so a javascript module can be imported as import() returns a promise
 window.onload = async function () {
   const { default: TriviaGame } = await import('./trivia-game.js');
-  Game = new TriviaGame();
+  Game = new TriviaGame('heroku');
 };
