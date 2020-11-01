@@ -38,6 +38,8 @@ $ npm run start:dev
 
 # production mode
 $ npm run start:prod
+
+# visit localhost:3000 in your web browser after server has started
 ```
 
 ## Running tests
