@@ -25,8 +25,8 @@ export default class TriviaGame {
   async generateRound() {
     let requestUrl =
       this.shuffleQuestions ? `${AppConfig.triviaApiUrl}?random=true` : AppConfig.triviaApiUrl;
-    const response = await fetch(requestUrl);
-    const data = await response.json();
+
+    const data = await getJsonResponseFromEndPoint(requestUrl);
 
     return data.map(triviaQuestion => {
       return TriviaQuestionDto.fromTriviaQuestion(triviaQuestion);
