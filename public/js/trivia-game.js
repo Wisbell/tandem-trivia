@@ -39,6 +39,17 @@ export default class TriviaGame {
     }
   }
 
+  // Creates and returns new element
+  generateElement(tagName, textNode) {
+    const newElement = document.createElement(tagName);
+
+    if (textNode) {
+      newElement.appendChild(
+        document.createTextNode(textNode)
+      );
+    }
+  }
+
   // Hide start section
   // Display question section
   // Generate initial question
