@@ -30,7 +30,7 @@ export class TriviaService {
     return this.triviaData.find(question => question.id === id);
   }
 
-  getNumberOfTriviaRounds() {
+  getNumberOfTriviaRounds(): number {
     return this.numberOfTriviaRounds;
   }
 }
