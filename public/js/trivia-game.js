@@ -98,8 +98,7 @@ export default class TriviaGame {
     this.appendTriviaQuestionContainerEl(questionElement);
 
     // Add all answers
-    const answersContainerElement = document.createElement('div');
-    answersContainerElement.classList.add('control');
+    const answersContainerElement = this.generateElement('div', '', ['control']);
 
     currentQuestion.allAnswers.forEach(answer => {
       // Create label element
