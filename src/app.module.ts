@@ -8,4 +8,4 @@ import { TriviaModule } from './trivia/trivia.module';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }

@@ -1,4 +1,4 @@
-import { Injectable, NotImplementedException } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { TriviaData } from 'src/models/trivia-data';
 import { TriviaQuestion } from 'src/models/trivia-question';
 import { shuffleArray } from 'src/utility/utility';
@@ -8,10 +8,11 @@ import * as data from '../data/Apprentice_TandemFor400_Data.json';
 export class TriviaService {
   // Load trivia data on initialization
   private readonly triviaData: TriviaQuestion[];
-  // TODO: Store number of rounds in this service
+  private numberOfTriviaRounds: number;
 
   constructor() {
     this.triviaData = TriviaQuestion.generateTriviaQuestionArray(data as TriviaData[]);
+    this.numberOfTriviaRounds = 10;
   }
 
   // Get all questions
@@ -31,9 +32,7 @@ export class TriviaService {
     return this.triviaData.find(question => question.id === id);
   }
 
-  // Get question by name in triviaData array property
-  // TODO: Implement if necessary or remove
-  getQuestionByName(questionName: string): TriviaQuestion {
-    throw new NotImplementedException();
+  getNumberOfTriviaRounds() {
+    return [{ numberOfTriviaRounds: this.numberOfTriviaRounds }];
   }
 }
