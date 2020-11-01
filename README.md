@@ -1,74 +1,72 @@
-<!--
-*** Thanks for checking out this README Template. If you have a suggestion that would
-*** make this better, please fork the repo and create a pull request or simply open
-*** an issue with the tag "enhancement".
-*** Thanks again! Now go create something AMAZING! :D
--->
+# Tandem Apprentice Challenge
 
+<p align="center">Trivia game built with <a href="https://nestjs.com/" target="blank">NestJS</a> with server generated routes combined with a simple API for easy trivia data retrieval.</p>
 
+**Note:** <i>See pdf in src/data folder for full information regarding the challenge.  Most information is included below</i>
 
-
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
-
-
-<!-- PROJECT LOGO -->
-<br />
-<p align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
-
-  <h3 align="center">Best-README-Template</h3>
-
-  <p align="center">
-    An awesome README template to jumpstart your projects!
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
-  </p>
-</p>
-
-
-
-<!-- TABLE OF CONTENTS -->
 ## Table of Contents
 
-* [About the Project](#about-the-project)
-  * [Built With](#built-with)
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
-* [Usage](#usage)
-* [Roadmap](#roadmap)
-* [Contributing](#contributing)
-* [License](#license)
-* [Contact](#contact)
-* [Acknowledgements](#acknowledgements)
+* [Running the app](#running-the-app)
+* [Running tests](#running-tests)
+* [Challenge Information](#challenge-information)
+* [Project Todo List](#project-todo-list)
 
-# Tandem Apprentice Challenge Info Below
+## Getting Started
 
-<i>See pdf in data folder for full information.</i>
+### Prerequisites
+
+* <a href="https://nodejs.org/en/" target="blank">Node.js</a> version 14 or greater
+
+### Installation
+
+* Clone project and cd into project folder
+```sh
+npm install
+```
+
+## Running the app
+
+```sh
+# development
+$ npm run start
+
+# watch mode
+$ npm run start:dev
+
+# production mode
+$ npm run start:prod
+```
+
+## Running tests
+
+```bash
+# unit tests
+$ npm run test
+
+# e2e tests
+$ npm run test:e2e
+
+# test coverage
+$ npm run test:cov
+```
+
+## Challenge Information
+---
+
+## Goal
+
+**Your goal is to create an application that displays trivia questions with multiple-choice answers to select from.**
+
+Use creative license in terms of how you want us to see this game. 
+
+**At minimum, the player can view the question(s), the answer choices, the correct answer upon submission, and their score.** 
+
+It could be a user interface (UI), command-line-tool, etc. Feel free to use whatever framework or language you are comfortable with.
+
+We would also like to see a README which includes any information about how to run the code, any known issues or complexity we should look out for, and any additional features you would like to have added to make your trivia app even more awesome.
 
 ## How To Submit
 
@@ -94,18 +92,6 @@ Itʼs best to use as few external dependencies as possible to keep the setup sim
 <b>You must also list any system dependencies (e.g. Ruby 2.3, Erlang runtime, JDK8, etc).</b>
 
 Your README is a great place to put this information.
-
-## Goal
-
-Your goal is to create an application that displays trivia questions with multiple-choice answers to select from.
-
-Use creative license in terms of how you want us to see this game. 
-
-At minimum, the player can view the question(s), the answer choices, the correct answer upon submission, and their score. 
-
-It could be a user interface (UI), command-line-tool, etc. Feel free to use whatever framework or language you are comfortable with.
-
-We would also like to see a README which includes any information about how to run the code, any known issues or complexity we should look out for, and any additional features you would like to have added to make your trivia app even more awesome.
 
 ## Assumptions
 - A round of trivia has 10 Questions
@@ -135,31 +121,35 @@ things.
 If you would like a challenge, consider adding unit tests
 to display your commitment to quality code.
 
-### TODO - Main Goals
-- Add acceptance criteria as goals
-- Add to heroku hosting
-- Add unit testing for functions
-- Add UI testing w jest? -> see tset folder in main directory
-- Clean up README, remove old readmes -> testing shield at top of page?
-- [ ] Model Data
-- [ ] Create User Stories
-- [ ] Create Views
-- [ ] Complete User Stories
+---
+### Project Todo List
+---
 
-### TODO - User Stories
-- [ ] A user can view one question at a time during a round of trivia
-- [ ] A user can choose one answer at a time
-- [ ] A user can view the correct answer to a question after submitting an answer
-- [ ] A user can view
+#### Main Goals
+- [x] User can view all questions
+- [x] User can view the answer choices
+- [x] User can view the correct answer on submit
+- [x] User can view their score
+- [x] User can view one question at a time during a round of trivia
+- [x] User can choose one answer at a time
+- [x] User can view the correct answer to a question after submitting an answer
 
+#### Planning
+- [x] Model Data
+- [x] Create User Stories (from acceptance criteria, etc)
+- [x] Create Views
 
-### TODO - Readme Goals
-- [ ] Add a installation/starting section when finished
-- [ ] Add testing shield to see if tests pass at top of readme
+#### Extras
 - [ ] Add Heroku hosting and link to the herkoku server
-
-### TODO - Stretch goals
+- [ ] Add testing shield to see if tests pass at top of readme if possible
 - [ ] Figure out how to do testing for SSR NestJS projects
-  - Research front end testing
-  - Unit test simple functions
+  - Unit test simple functions/e2e view testing
+  - See spec files in controllers/services
+  - Research testing front end
 - [ ] Add Multiple users
+  - CRUD for users
+    - login
+    - logout
+    - keep track of games played
+    - start/stop trivia round, ie. give up on a round if they want
+- [ ] Add different difficulty levels of questions, ie: easy, medium, hard
