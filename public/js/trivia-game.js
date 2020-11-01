@@ -4,7 +4,6 @@ import TriviaQuestionDto from './trivia-question.js';
 export default class TriviaGame {
   currentQuestionIndex = 0;
   currentRoundIndex = 0;
-  // TODO: store numeberOfRounds on backend and retrieve from there
   // Number of rounds for the trivia game, retrieved from DOM id on trivia route
   numberOfRounds = 0;
   // Array of array Trivia Questions
