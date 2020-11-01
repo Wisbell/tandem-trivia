@@ -60,13 +60,17 @@ export default class TriviaGame {
   }
 
   // Creates and returns new element
-  generateElement(tagName, textNode = '') {
+  generateElement(tagName, textNode = '', classList = []) {
     const newElement = document.createElement(tagName);
 
     if (textNode) {
       newElement.appendChild(
         document.createTextNode(textNode)
       );
+    }
+
+    if (classList.length > 0) {
+      newElement.classList.add(classList);
     }
 
     return newElement;
@@ -90,10 +94,8 @@ export default class TriviaGame {
     const triviaQuestionContainer = document.getElementById('trivia-question-container');
 
     // Add question header
-    const questionElement = document.createElement('h3');
-    const questionText = document.createTextNode(currentQuestion.question);
-    questionElement.appendChild(questionText);
-    triviaQuestionContainer.appendChild(questionElement);
+    const questionElement = this.generateElement('h3', currentQuestion.question);
+    this.appendTriviaQuestionContainerEl(questionElement);
 
     // Add all answers
     const answersContainerElement = document.createElement('div');
