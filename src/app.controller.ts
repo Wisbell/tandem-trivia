@@ -25,4 +25,8 @@ export class AppController {
       )
     };
   }
+
+  @Get('about')
+  @Render('about')
+  about() { }
 }
