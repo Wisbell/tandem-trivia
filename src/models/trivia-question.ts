@@ -34,6 +34,8 @@ export class TriviaQuestion {
   // https://stackoverflow.com/a/12646864
   // Gets incorrect and correct answers and returns them in a random order
   randomizeAnswers() {
-    return shuffleArray(this.generateAnswerArray());
+    const allAnswers = this.generateAnswerArray()
+    shuffleArray(allAnswers);
+    return allAnswers;
   }
 }
