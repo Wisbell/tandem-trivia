@@ -1,6 +1,6 @@
 # Tandem Apprentice Challenge
 
-<p align="center">Trivia game built with <a href="https://nestjs.com/" target="blank">NestJS</a> with server generated routes combined with a simple API for easy trivia data retrieval.</p>
+<p align="center">Trivia game built with <a href="https://nestjs.com/" target="blank">NestJS</a> with server generated routes combined with a simple API for easy trivia data retrieval.  Uses <a href="https://bulma.io/" target="blank">Bulma</a> for CSS styling</p>
 
 **Note:** <i>See pdf in src/data folder for full information regarding the challenge.  Most information is included below</i>
 
