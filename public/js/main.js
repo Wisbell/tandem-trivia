@@ -5,4 +5,5 @@ let Game; // TriviaGame instance
 window.onload = async function () {
   const { default: TriviaGame } = await import('./trivia-game.js');
   Game = new TriviaGame();
+  console.log('game', Game);
 };

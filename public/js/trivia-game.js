@@ -1,5 +1,6 @@
 import AppConfig from './config.js';
-import TriviaQuestionDto from './trivia-question.js';
+import TriviaQuestionDto from './trivia-question-dto.js';
+import { getJsonResponseFromEndPoint } from './utility.js';
 
 export default class TriviaGame {
   currentQuestionIndex = 0;
@@ -12,16 +13,13 @@ export default class TriviaGame {
     this.init();
   }
 
-  init() {
-    this.numberOfRounds = this.getNumberOfRounds();
-    this.generateAllRounds();
+  async init() {
+    this.numberOfRounds = await this.getNumberOfRounds();
+    await this.generateAllRounds();
   }
 
   async getNumberOfRounds() {
-    let requestUrl = `${AppConfig.triviaApiUrl}/rounds`;
-    const response = await fetch(requestUrl);
-    const data = await response.json();
-    return data;
+    return await getJsonResponseFromEndPoint(`${AppConfig.triviaApiUrl}/rounds`);
   }
 
   async generateRound() {
@@ -264,6 +262,7 @@ export default class TriviaGame {
   }
 
   getCurrentQuestion() {
+    console.log('this', this);
     return this.rounds[this.currentRoundIndex][this.currentQuestionIndex];
   }
 

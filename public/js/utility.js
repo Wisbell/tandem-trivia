@@ -6,7 +6,7 @@ export function shuffleArray(array) {
   }
 }
 
-export function getJsonResponseFromEndPoint(endpoint) {
+export async function getJsonResponseFromEndPoint(endpoint) {
   const response = await fetch(endpoint);
   const data = await response.json();
   return data;
