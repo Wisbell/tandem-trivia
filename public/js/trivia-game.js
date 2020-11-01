@@ -1,4 +1,5 @@
-import AppConfig from './config.js';
+// TODO: Make it easier to choose between regular config and testing config
+import { AppConfig, TestAppConfig } from './config.js';
 import TriviaQuestionDto from './trivia-question-dto.js';
 import { getJsonResponseFromEndPoint, generateElement } from './utility.js';
 
