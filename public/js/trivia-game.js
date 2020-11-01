@@ -55,6 +55,10 @@ export default class TriviaGame {
     return document.getElementById('trivia-question-container');
   }
 
+  appendTriviaQuestionContainerEl(elementToAppend) {
+    this.getTriviaQuestionContainerEl().appendChild(elementToAppend);
+  }
+
   // Creates and returns new element
   generateElement(tagName, textNode = '') {
     const newElement = document.createElement(tagName);
@@ -70,11 +74,12 @@ export default class TriviaGame {
 
   generateCurrentRoundTemplate() {
     // const triviaQuestionContainer = document.getElementById('trivia-question-container');
-    const triviaQuestionContainer = this.getTriviaQuestionContainerEl();
+    // const triviaQuestionContainer = this.getTriviaQuestionContainerEl();
     const currentRoundHeader = document.createElement('h2');
     const headerText = document.createTextNode(`Current Round: ${this.currentRoundIndex + 1}`);
     currentRoundHeader.appendChild(headerText);
-    triviaQuestionContainer.appendChild(currentRoundHeader);
+    // this.getTriviaQuestionContainerEl().appendChild(currentRoundHeader);
+    this.appendTriviaQuestionContainerEl(currentRoundHeader);
   }
 
   generateCurrentQuestionTemplate() {
