@@ -130,7 +130,8 @@ export default class TriviaGame {
     });
 
     // Add answersContainer element to main trivia question container element
-    triviaQuestionContainer.appendChild(answersContainerElement);
+    // triviaQuestionContainer.appendChild(answersContainerElement);
+    this.appendTriviaQuestionContainerEl(answersContainerElement);
 
     const submitAnswerButton = this.generateElement('button', 'Submit', ['button', 'is-primary', 'mt-3']);
     // NOTE: .bind(this) binds 'this' instance of TriviaGame instead of the submit answer's button 'this'
@@ -138,7 +139,8 @@ export default class TriviaGame {
     // Disable submit button until an answer is chosen
     submitAnswerButton.disabled = true;
     submitAnswerButton.setAttribute("id", "submitAnswerButton");
-    triviaQuestionContainer.appendChild(submitAnswerButton);
+    // triviaQuestionContainer.appendChild(submitAnswerButton);
+    this.appendTriviaQuestionContainerEl(submitAnswerButton);
   }
 
   enableSubmitAnswerButton() {
