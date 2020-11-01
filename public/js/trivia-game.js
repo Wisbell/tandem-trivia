@@ -73,12 +73,9 @@ export default class TriviaGame {
   }
 
   generateCurrentRoundTemplate() {
-    // const triviaQuestionContainer = document.getElementById('trivia-question-container');
-    // const triviaQuestionContainer = this.getTriviaQuestionContainerEl();
     const currentRoundHeader = document.createElement('h2');
     const headerText = document.createTextNode(`Current Round: ${this.currentRoundIndex + 1}`);
     currentRoundHeader.appendChild(headerText);
-    // this.getTriviaQuestionContainerEl().appendChild(currentRoundHeader);
     this.appendTriviaQuestionContainerEl(currentRoundHeader);
   }
 
