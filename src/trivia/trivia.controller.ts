@@ -7,17 +7,6 @@ import { TriviaService } from './trivia.service';
 export class TriviaController {
   constructor(private triviaService: TriviaService) { }
 
-  @Get('')
-  @Render('trivia')
-  root() {
-    return {
-      trivia: new TriviaGame(
-        10,
-        this.triviaService.getAllQuestions()
-      )
-    };
-  }
-
   // TODO: Make random query only accept true and false strings -> Make custom pipe
   @Get('api')
   getAllQuestions(@Query('random') random: string) {
