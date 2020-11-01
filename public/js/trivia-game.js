@@ -21,6 +21,13 @@ export default class TriviaGame {
     this.generateAllRounds();
   }
 
+  async getNumberOfRounds() {
+    let requestUrl = `${AppConfig.triviaApiUrl}/rounds`;
+    const response = await fetch(requestUrl);
+    const data = await response.json();
+    return data;
+  }
+
   async generateRound() {
     let requestUrl =
       this.shuffleQuestions ? `${AppConfig.triviaApiUrl}?random=true` : AppConfig.triviaApiUrl;
@@ -293,12 +300,5 @@ export default class TriviaGame {
       return true;
     else
       return false;
-  }
-
-  async getNumberOfRounds() {
-    let requestUrl = `${AppConfig.triviaApiUrl}/rounds`;
-    const response = await fetch(requestUrl);
-    const data = await response.json();
-    return data;
   }
 }
