@@ -19,9 +19,10 @@ export default class TriviaQuestionDto {
     return this.correctAnswer === this.userAnswer;
   }
 
-  static fromTriviaQuestion({ id, question, incorrectAnswers, correctAnswer }) {
+  static fromTriviaQuestion({ id, question, incorrectAnswers, correctAnswer }, randomizeAnswers = true) {
     const allAnswers = [...incorrectAnswers, correctAnswer];
-    shuffleArray(allAnswers);
+    if (randomizeAnswers)
+      shuffleArray(allAnswers);
     return new TriviaQuestionDto(id, question, allAnswers, correctAnswer);
   }
 
