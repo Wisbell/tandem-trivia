@@ -108,8 +108,7 @@ export default class TriviaGame {
 
     currentQuestion.allAnswers.forEach(answer => {
       // Create label element
-      const labelElement = document.createElement('label');
-      labelElement.classList.add('radio');
+      const labelElement = this.generateElement('label', '', ['radio']);
       // NOTE: .bind(this) binds 'this' instance of TriviaGame instead of the label element 'this'
       labelElement.addEventListener('click', this.enableSubmitAnswerButton.bind(this));
       // Create input element
