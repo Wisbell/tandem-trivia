@@ -226,22 +226,16 @@ export default class TriviaGame {
   }
 
   generateRoundScoreTemplate() {
-    const triviaQuestionContainer = document.getElementById('trivia-question-container');
-
     // Create and add header
-    const roundScoreHeaderElement = document.createElement('h4');
-    roundScoreHeaderElement.classList.add('has-text-info');
-    roundScoreHeaderElement.appendChild(document.createTextNode('Nice Work!'));
-    triviaQuestionContainer.appendChild(roundScoreHeaderElement);
+    const roundScoreHeaderElement = this.generateElement('h4', 'Nice Work!', ['has-text-info']);
+    this.appendTriviaQuestionContainerEl(roundScoreHeaderElement);
 
     // Create score
     // NOTE: roundScore = { correctAnswers, numberOfQuestions }
     const roundScore = TriviaQuestionDto.getRoundScore(this.rounds[this.currentRoundIndex]);
-    const scoreElement = document.createElement('h4');
-    scoreElement.appendChild(
-      document.createTextNode(`You got ${roundScore.correctAnswers}/${roundScore.numberOfQuestions}`)
-    );
-    triviaQuestionContainer.appendChild(scoreElement);
+    const scoreElement = this.generateElement('h4', `You got ${roundScore.correctAnswers}/${roundScore.numberOfQuestions}`);
+    this.appendTriviaQuestionContainerEl(scoreElement);
+
   }
 
   displayRoundScore() {
