@@ -1,23 +1,60 @@
 # Tandem Apprentice Challenge
 
-<i>See pdf in data folder for full information regarding the challenge.</i>
+<p align="center">Trivia game built with <a href="https://nestjs.com/" target="blank">NestJS</a> with server generated routes combined with a simple API for easy trivia data retrieval.</p>
 
-## SHOW IN ThiS ORDER
-- Description
-- Table of Contents
-- Getting Started
-  - Prerequisites
-  - Installation
-- Running the app
-- Running the tests
-- Built With?
+**Note:** <i>See pdf in src/data folder for full information regarding the challenge.  Most information is included below</i>
 
-<!-- TABLE OF CONTENTS -->
 ## Table of Contents
 
-* [Goal](#goal)
-* [Development Setup](#development-setup)
+* [Getting Started](#getting-started)
+  * [Prerequisites](#prerequisites)
+  * [Installation](#installation)
+* [Running the app](#running-the-app)
+* [Running tests](#running-tests)
+* [Challenge Information](#challenge-information)
+* [Project Todo List](#project-todo-list)
 
+## Getting Started
+
+### Prerequisites
+
+* <a href="https://nodejs.org/en/" target="blank">Node.js</a> version 14 or greater
+
+### Installation
+
+* Clone project and cd into project folder
+```sh
+npm install
+```
+
+## Running the app
+
+```sh
+# development
+$ npm run start
+
+# watch mode
+$ npm run start:dev
+
+# production mode
+$ npm run start:prod
+```
+
+## Running tests
+
+```bash
+# unit tests
+$ npm run test
+
+# e2e tests
+$ npm run test:e2e
+
+# test coverage
+$ npm run test:cov
+```
+
+## Challenge Information
+---
 
 ## Goal
 
@@ -30,26 +67,6 @@ Use creative license in terms of how you want us to see this game.
 It could be a user interface (UI), command-line-tool, etc. Feel free to use whatever framework or language you are comfortable with.
 
 We would also like to see a README which includes any information about how to run the code, any known issues or complexity we should look out for, and any additional features you would like to have added to make your trivia app even more awesome.
-
-### Development Setup
-```sh
-# Note: Requires NodeJS version 14 or greater
-npm install
-# Run locally in development mode
-npm run start:dev
-```
-
-## Running the app
-```sh
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
-```
 
 ## How To Submit
 
@@ -104,35 +121,35 @@ things.
 If you would like a challenge, consider adding unit tests
 to display your commitment to quality code.
 
-### TODO - Main Goals
-- Add acceptance criteria as goals
-- Add to heroku hosting
-- Add unit testing for functions
-- Add UI testing w jest? -> see tset folder in main directory
-- Clean up README, remove old readmes -> testing shield at top of page?
-- Player can view all questions
-- Player can view the answer choices
-- Player can view the correct answer on submit
-- Player can view their score
-- [ ] Model Data
-- [ ] Create User Stories
-- [ ] Create Views
-- [ ] Complete User Stories
+---
+### Project Todo List
+---
 
-### TODO - User Stories
-- [ ] A user can view one question at a time during a round of trivia
-- [ ] A user can choose one answer at a time
-- [ ] A user can view the correct answer to a question after submitting an answer
-- [ ] A user can view
+#### Main Goals
+- [x] User can view all questions
+- [x] User can view the answer choices
+- [x] User can view the correct answer on submit
+- [x] User can view their score
+- [x] User can view one question at a time during a round of trivia
+- [x] User can choose one answer at a time
+- [x] User can view the correct answer to a question after submitting an answer
 
+#### Planning
+- [x] Model Data
+- [x] Create User Stories (from acceptance criteria, etc)
+- [x] Create Views
 
-### TODO - Readme Goals
-- [ ] Add a installation/starting section when finished
-- [ ] Add testing shield to see if tests pass at top of readme
+#### Extras
 - [ ] Add Heroku hosting and link to the herkoku server
-
-### TODO - Stretch goals
+- [ ] Add testing shield to see if tests pass at top of readme if possible
 - [ ] Figure out how to do testing for SSR NestJS projects
-  - Research front end testing
-  - Unit test simple functions
+  - Unit test simple functions/e2e view testing
+  - See spec files in controllers/services
+  - Research testing front end
 - [ ] Add Multiple users
+  - CRUD for users
+    - login
+    - logout
+    - keep track of games played
+    - start/stop trivia round, ie. give up on a round if they want
+- [ ] Add different difficulty levels of questions, ie: easy, medium, hard
