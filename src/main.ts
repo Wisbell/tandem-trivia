@@ -21,6 +21,7 @@ async function bootstrap() {
   app.setBaseViewsDir([
     join(__dirname, '..', 'src', 'views', 'home'),
     join(__dirname, '..', 'src', 'views', 'trivia'),
+    join(__dirname, '..', 'src', 'views', 'about')
   ]);
 
   app.useStaticAssets(join(__dirname, '..', 'public'));

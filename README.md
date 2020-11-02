@@ -2,7 +2,14 @@
 
 <p align="center">Trivia game built with <a href="https://nestjs.com/" target="blank">NestJS</a> with server generated routes combined with a simple API for easy trivia data retrieval.  Uses <a href="https://bulma.io/" target="blank">Bulma</a> for CSS styling</p>
 
-**Note:** <i>See pdf in src/data folder for full information regarding the challenge.  Most information is included below</i>
+<p align="center">
+<a href="https://tandem-trivia-westley.herokuapp.com/" target="blank">Demo</a> hosted on <a href="https://www.heroku.com/" target="blank">Heroku</a>
+<br>
+<i>The demo may take a second to load if the server hasn't run recently.</i>
+<br>
+<br>
+<b>Note:</b> <i>See pdf in src/data folder for full information regarding the challenge.  Most information is included below</i>
+</p>
 
 ## Table of Contents
 
@@ -37,6 +44,7 @@ $ npm run start
 $ npm run start:dev
 
 # production mode
+$ npm run build
 $ npm run start:prod
 
 # visit localhost:3000 in your web browser after server has started

@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { TriviaData } from 'src/models/trivia-data';
-import { TriviaQuestion } from 'src/models/trivia-question';
-import { shuffleArray } from 'src/utility/utility';
+import { TriviaData } from '../models/trivia-data';
+import { TriviaQuestion } from '../models/trivia-question';
+import { shuffleArray } from '../utility/utility';
 import * as data from '../data/Apprentice_TandemFor400_Data.json';
 
 @Injectable()
