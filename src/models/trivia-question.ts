@@ -1,4 +1,4 @@
-import { shuffleArray } from "../utility/utility";
+import { shuffleArray } from "src/utility/utility";
 import { TriviaData } from "./trivia-data";
 
 /* Class resembling TriviaData but with more descriptive/specific property names */
