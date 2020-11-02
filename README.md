@@ -1,9 +1,9 @@
 # Tandem Apprentice Challenge
 
-<p align="center">Trivia game built with <a href="https://nestjs.com/" target="blank">NestJS</a> with server generated routes combined with a simple API for easy trivia data retrieval.  Uses <a href="https://bulma.io/" target="blank">Bulma</a> for CSS styling</p>
+<p align="center">Trivia game built with <a href="https://nestjs.com/" target="_blank">NestJS</a> with server generated routes combined with a simple API for easy trivia data retrieval.  Uses <a href="https://bulma.io/" target="_blank">Bulma</a> for CSS styling</p>
 
 <p align="center">
-<a href="https://tandem-trivia-westley.herokuapp.com/" target="blank">Demo</a> hosted on <a href="https://www.heroku.com/" target="blank">Heroku</a>
+<a href="https://tandem-trivia-westley.herokuapp.com/" target="_blank">Demo</a> hosted on <a href="https://www.heroku.com/" target="_blank">Heroku</a>
 <br>
 <i>The demo may take a second to load if the server hasn't run recently.</i>
 <br>
@@ -150,7 +150,7 @@ to display your commitment to quality code.
 - [x] Create Views
 
 #### Extras
-- [ ] Add Heroku hosting and link to the herkoku server
+- [X] Add Heroku hosting and link to the herkoku server
 - [ ] Add testing shield to see if tests pass at top of readme if possible
 - [ ] Figure out how to do testing for SSR NestJS projects
   - Unit test simple functions/e2e view testing
